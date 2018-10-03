@@ -2,7 +2,7 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class AvgWeatherV2 {
+public class RohanDeshpandeWeatherAnalysis2 {
     public static void main (String[] args){
         DecimalFormat df = new DecimalFormat("00.0");
         Scanner scan = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class AvgWeatherV2 {
             System.out.println("You only entered one day, so the hottest and coldest temperature is " + weather[0] + ".");
         else {
             System.out.println("Two coldest days: " + weather[0] + ", " + weather[1]);
-            System.out.println("Two coldest days: " + weather[amt - 1] + ", " + weather[amt - 2]);
+            System.out.println("Two hottest days: " + weather[amt - 1] + ", " + weather[amt - 2]);
         }
     }
 
