@@ -7,6 +7,7 @@ public class ArrayPractice {
         randomArray();
         randomArray2();
         int[] array = {5, 2, 4, 1, 3};
+        System.out.println(array.length);
         System.out.println(Arrays.toString(oliverAlgo(array)));
         inArraySwap(array);
         System.out.println(Arrays.toString(array));
