@@ -5,7 +5,7 @@ public class RohanDeshpandeWeatherAnalysis {
     public static void main (String[] args){
         DecimalFormat df = new DecimalFormat("00.0");
         Scanner scan = new Scanner(System.in);
-        System.out.println("How many days' temperatures?");
+        System.out.print("How many days' temperatures?");
         int amt = scan.nextInt();
         //step 1: declare
         int weather[] = new int[amt];
@@ -40,7 +40,7 @@ public class RohanDeshpandeWeatherAnalysis {
 
     public static int[] makeArray(int[] weather, int temp, Scanner scan, int amt){
         for(int i = 0; i < amt; i++){
-            System.out.println("Day " + (i+1) + "'s temp:");
+            System.out.print("Day " + (i+1) + "'s temp:");
             temp = scan.nextInt();
             weather[i] = temp;
         }
