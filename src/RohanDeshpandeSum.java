@@ -1,25 +1,60 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class RohanDeshpandeSum {
-    public static void main(String args)throws IOException {
-        int[] total = new int[25];
+    public static void main(String args[])throws IOException {
+
 
         File f = new File("sum.txt");
         Scanner scanFile = new Scanner(f);
-        Scanner scanLine = new Scanner(scanFile.nextLine());
-        Scanner scanChar = new Scanner(scanLine.next());
+
         while(scanFile.hasNextLine()) {
-            while(scanChar.hasNext()) {
+            int[] total = new int[27];
+            String line = scanFile.nextLine();
+            Scanner scanLine = new Scanner(line);
+            while(scanLine.hasNext()) {
+                String number = scanLine.next();
+                char[] numberExt = number.toCharArray();
+                for(int i = 0; i < numberExt.length; i++){
+                    System.out.print(numberExt[i]);
+                }
+                if(scanLine.hasNext())
+                    System.out.print(" + ");
+                else
+                    System.out.print(" = ");
+                for(int i = 0; i < numberExt.length; i++) {
+                    String s = "" + numberExt[numberExt.length - i - 1];
+                    int num = Integer.parseInt(s);
+                    total[total.length-i-1] = num + total[total.length-i-1];
+                    int remainder = total[total.length-i-1] / 10;
+                    total[total.length-i-1] = total[total.length-i-1] % 10;
+                    total[total.length-i-2] += remainder;
+
+
+                }
 
             }
-        }
+            boolean done = false;
+            for(int i = 0; i < total.length; i++){
+                if(total[i] != 0) {
+                    for(int j = i; j < total.length; j++) {
+                        done = true;
+                        System.out.print(total[j]);
+                    }
+                    break;
+                }
+            }
+            if(done == false)
+                System.out.print("0");
+            System.out.println();
         }
     }
 }
 
-//1. create file scanner
+
+//1. create file scanner *
 //2. create two arrays, one for total number and one for the number you are adding.
 //3. for the second array, typecast int as a string and make the array its length
 //4. for the first array, in order to start it at the end, start at array.length - 1 - its length(typecast, find length)
