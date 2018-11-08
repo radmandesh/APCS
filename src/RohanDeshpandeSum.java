@@ -3,7 +3,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class RohanDeshpandeSum {
+public class RohanDeshpandeSumV2 {
+    private static int ARRAY_LENGTH = 26;
     public static void main(String args[])throws IOException {
 
 
@@ -11,45 +12,55 @@ public class RohanDeshpandeSum {
         Scanner scanFile = new Scanner(f);
 
         while(scanFile.hasNextLine()) {
-            int[] total = new int[27];
+            int[] total = new int[ARRAY_LENGTH];
             String line = scanFile.nextLine();
             Scanner scanLine = new Scanner(line);
             while(scanLine.hasNext()) {
-                String number = scanLine.next();
-                char[] numberExt = number.toCharArray();
-                for(int i = 0; i < numberExt.length; i++){
-                    System.out.print(numberExt[i]);
-                }
-                if(scanLine.hasNext())
-                    System.out.print(" + ");
-                else
-                    System.out.print(" = ");
+                char[] numberExt = printNums(scanLine);
                 for(int i = 0; i < numberExt.length; i++) {
-                    String s = "" + numberExt[numberExt.length - i - 1];
-                    int num = Integer.parseInt(s);
-                    total[total.length-i-1] = num + total[total.length-i-1];
-                    int remainder = total[total.length-i-1] / 10;
-                    total[total.length-i-1] = total[total.length-i-1] % 10;
-                    total[total.length-i-2] += remainder;
-
-
-                }
-
-            }
-            boolean done = false;
-            for(int i = 0; i < total.length; i++){
-                if(total[i] != 0) {
-                    for(int j = i; j < total.length; j++) {
-                        done = true;
-                        System.out.print(total[j]);
-                    }
-                    break;
+                    addition(numberExt, total, i);
                 }
             }
-            if(done == false)
-                System.out.print("0");
-            System.out.println();
+            printTotal(total);
         }
+    }
+
+    public static char[] printNums(Scanner scanLine){
+        String number = scanLine.next();
+        char[] numberExt = number.toCharArray();
+        for(int i = 0; i < numberExt.length; i++){
+            System.out.print(numberExt[i]);
+        }
+        if(scanLine.hasNext())
+            System.out.print(" + ");
+        else
+            System.out.print(" = ");
+        return numberExt;
+    }
+
+    public static void addition(char[] numberExt, int[] total, int i){
+        String s = "" + numberExt[numberExt.length - i - 1];
+        int num = Integer.parseInt(s);
+        total[total.length-i-1] = num + total[total.length-i-1];
+        int remainder = total[total.length-i-1] / 10;
+        total[total.length-i-1] = total[total.length-i-1] % 10;
+        total[total.length-i-2] += remainder;
+    }
+
+    public static void printTotal(int[] total){
+        boolean done = false;
+        for(int i = 0; i < total.length; i++){
+            if(total[i] != 0) {
+                for(int j = i; j < total.length; j++) {
+                    done = true;
+                    System.out.print(total[j]);
+                }
+                break;
+            }
+        }
+        if(done == false)
+            System.out.print("0");
+        System.out.println();
     }
 }
 
