@@ -1,9 +1,19 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class RohanDeshpandeSum {
-    private static int ARRAY_LENGTH = 26; //class constant
+public class RohanDeshpandeSumEC {
+    public static final int ARRAY_LENGTH; //class constant
+    static{
+        try{
+            ARRAY_LENGTH = (calc(new File("sum.txt")));
+        }
+        catch(final Exception ex){
+            throw new RuntimeException("Failed to find length of longest number",ex);
+        }
+    }
+
     public static void main(String args[])throws IOException {
         int countLines = 0;
         File f = new File("sum.txt");
@@ -67,6 +77,19 @@ public class RohanDeshpandeSum {
         System.out.println();
     }
 
+    public static int calc(File f) throws FileNotFoundException {
+        Scanner scan = new Scanner(f);
+        int largestAmtDgt = 0;
+        int tempLargest = 0;
+        while(scan.hasNext()){
+            String temp = scan.next();
+            tempLargest = temp.length();
+            if(tempLargest > largestAmtDgt)
+                largestAmtDgt = tempLargest;
+        }
+        return largestAmtDgt + 1;
+    }
+}
 
 
 //1. create file scanner *
