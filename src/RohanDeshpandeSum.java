@@ -17,7 +17,7 @@ public class RohanDeshpandeSum {
         }
         }
     }
-}
+
 
 //1. create file scanner
 //2. create two arrays, one for total number and one for the number you are adding.
