@@ -4,13 +4,20 @@ public class PointV4 {
     //state fields for Point class
     private int x;
     private int y;
+    private static int objCount; //static fields belong to the class. not an object.
     //behaviors for point class
     public PointV4(int x, int y){
+        objCount++;
         this.x = x;
         this.y = y;
     }
 
+    public static void setObjCount(int objCount) {
+        PointV4.objCount = objCount;
+    }
+
     public PointV4(){
+        objCount++;
         this.x = 0;
         this.y = 0;
     }
@@ -52,5 +59,9 @@ public class PointV4 {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public static int getObjCount() {
+        return objCount;
     }
 }

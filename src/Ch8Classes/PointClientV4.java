@@ -17,5 +17,6 @@ public class PointClientV4 {
         System.out.println(point.distance(point2));
         System.out.println(point.distanceFromOrigin());
         System.out.println(point);
+        System.out.println(PointV4.getObjCount());
     }
 }
