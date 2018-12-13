@@ -20,12 +20,11 @@ public class BankAccountV1 {
         this.address = address;
         this.dob = dob;
     }
-    public BankAccountV1(String name, int ssn, String address, String dob, double balance, int pin){
+    public BankAccountV1(String name, int ssn, String address, String dob, int pin){
         this.name = name;
         this.ssn = ssn;
         this.address = address;
         this.dob = dob;
-        this.balance = balance;
         this.pin = pin;
     }
 
@@ -43,15 +42,17 @@ public class BankAccountV1 {
         System.out.println("Old pin?");
         Scanner scan = new Scanner(System.in);
         int oldPin = scan.nextInt();
-        while(oldPin != this.pin || oldPin != -1){
+        while(oldPin != this.pin && oldPin != -1){
             System.out.println("That pin is incorrect. Try again or type -1 to cancel.");
             oldPin = scan.nextInt();
+            System.out.println(this.pin);
+            System.out.println(oldPin);
         }
         System.out.println("Type new pin");
         int newPin = scan.nextInt();
         System.out.println("Type new pin again");
         int newPinConfirm = scan.nextInt();
-        while(newPin != newPinConfirm || newPin != -1){
+        while(newPin != newPinConfirm && newPin != -1){
             System.out.println("Those are not the same. Try again or type -1 to cancel.");
             newPin = scan.nextInt();
             System.out.println("Type new pin again");
@@ -71,14 +72,6 @@ public class BankAccountV1 {
         return acctNum;
     }
 
-    public int getSsn() {
-        return ssn;
-    }
-
-    public int getPin() {
-        return pin;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -90,5 +83,7 @@ public class BankAccountV1 {
     public String toString(){
         return "$" + balance;
     }
+
+    public int getPin(){ return this.pin; }
 
 }
