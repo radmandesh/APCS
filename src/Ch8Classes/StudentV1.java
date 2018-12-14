@@ -55,7 +55,7 @@ public class StudentV1 {
         return counselor;
     }
 
-    public int getGpa() {
+    public double getGpa() {
         return gpa;
     }
 
