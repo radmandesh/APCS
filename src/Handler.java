@@ -2,7 +2,7 @@ package com.game.main;
 
 import java.awt.*;
 import java.util.LinkedList;
-
+//handles all of the actions within the game
 public class Handler {
     LinkedList<GameObject> object = new LinkedList<>();
 

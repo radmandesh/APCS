@@ -1,22 +1,19 @@
 package com.game.main;
 
 import java.awt.*;
-
+//projectile object created by player
 public class Projectile extends Player {
     public Projectile(int x, int y, ID id, Handler handler) {
         super(x, y, id, handler);
         velX = 2;
-
     }
 
     @Override
     public void tick() {
         x += velX;
-        if(this.x > 640 || this.y > 640/12*9){
+        if(this.x > WIDTH || this.y > HEIGHT){
             System.out.println("removed");
             handler.removeObject(this);
-            this.x = 0;
-            this.y = 300;
         }
     }
 

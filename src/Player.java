@@ -5,7 +5,7 @@ import java.util.Random;
 
 import static com.game.main.Game.HEIGHT;
 import static com.game.main.Game.WIDTH;
-
+//class that creates player and player actions
 public class Player extends GameObject{
 
     public Player(int x, int y, ID id, Handler handler) {
@@ -14,7 +14,8 @@ public class Player extends GameObject{
 
     @Override
     public void tick() {
-
+        x += velX;
+        y += velY;
     }
 
     @Override

@@ -2,12 +2,11 @@ package com.game.main;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.Random;
-
+//main game class, includes main method.
 public class Game extends Canvas implements Runnable{
 
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = WIDTH/12*9;
+    public static final int WIDTH = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+    public static final int HEIGHT = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
     private Thread thread;
     private boolean running = false;
     private Handler handler;
@@ -19,7 +18,7 @@ public class Game extends Canvas implements Runnable{
         new Window(WIDTH, HEIGHT, "Game 1", this);
 
 
-
+        //adds objects to handler array, and handler does things with them
         handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
         handler.addObject(new Player(WIDTH/3, HEIGHT/2-32, ID.Player2, handler));
 
@@ -72,10 +71,12 @@ public class Game extends Canvas implements Runnable{
         }
     }
 
+    //tick means it does this while the game loop is running
     private void tick(){
         handler.tick();
     }
 
+    //renders the graphics
     private void render(){
         BufferStrategy bs = this.getBufferStrategy();
         if(bs == null){

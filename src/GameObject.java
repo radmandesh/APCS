@@ -1,8 +1,11 @@
 package com.game.main;
 
 import java.awt.*;
-
+//abstract class -- blueprint class for those that extend it. this is a blueprint for all the game's objects. common methods include...
+//protected means only things that extend it can use it
 public abstract class GameObject {
+    public static final int WIDTH = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+    public static final int HEIGHT = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
     protected int x, y;
     protected ID id;
     protected int velX, velY;

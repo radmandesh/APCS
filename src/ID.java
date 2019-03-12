@@ -1,5 +1,5 @@
 package com.game.main;
-
+//labels for different objects
 public enum ID {
     Player(),
     Player2(),
