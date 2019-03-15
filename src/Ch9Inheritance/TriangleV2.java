@@ -1,11 +1,11 @@
 package Ch9Inheritance;
 
-public class TriangleV1 implements ShapeV1 {
+public class TriangleV2 extends ShapeV2 {
     private double a;
     private double b;
     private double c;
     private double s;
-    public TriangleV1(double a, double b, double c){
+    public TriangleV2(double a, double b, double c){
         this.a = a;
         this.b = b;
         this.c = c;

@@ -1,8 +1,8 @@
 package Ch9Inheritance;
 
-public class CircleV1 implements ShapeV1 {
+public class CircleV2 extends ShapeV2 {
     private double radius;
-    public CircleV1(double radius){
+    public CircleV2(double radius){
         this.radius = radius;
     }
     @Override
