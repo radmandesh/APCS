@@ -35,7 +35,7 @@ public class MergeSort {
         int[] nums2 = Arrays.copyOfRange(arr, nums1.length, arr.length);
         mergeSort(nums1);
         mergeSort(nums2);
-        merge(nums1, nums2);
+        return merge(nums1, nums2);
 
     }
 }
